@@ -1,0 +1,61 @@
+
+     module ecalUncalibHit2 = ecalFixedAlphaBetaFitUncalibRecHit from "RecoLocalCalo/EcalRecProducers/data/ecalFixedAlphaBetaFitUncalibRecHit.cfi"
+
+     replace ecalUncalibHit2.MinAmplBarrel = 12.
+     replace ecalUncalibHit2.MinAmplEndcap = 16.
+
+     replace ecalUncalibHit2.EBdigiCollection = ecalEBunpacker:ebDigis
+     replace ecalUncalibHit2.EEdigiCollection = ecalEBunpacker:eeDigis
+
+include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
+
+include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi" 
+
+     replace ecalBarrelTimingTask.EcalUncalibratedRecHitCollection = ecalUncalibHit2:EcalUncalibRecHitsEB
+
+include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
+
+     replace ecalBarrelMonitorClient.maskFile = ""
+     replace ecalBarrelMonitorClient.location = "P5"
+
+     replace ecalBarrelMonitorClient.enabledClients = { "Integrity",
+                                                        "StatusFlags",
+                                                        "Occupancy",
+                                                        "PedestalOnline",
+                                                        "Pedestal", "TestPulse",
+                                                        "Laser", "Timing",
+                                                        "Cosmic",
+                                                        "Cluster",
+                                                        "TriggerTower",
+                                                        "Summary" }
+
+     replace islandBasicClusters.IslandBarrelSeedThr = 0.150 # 0.500
+     replace islandBasicClusters.IslandEndcapSeedThr = 0.150 # 0.180
+
+     replace hybridSuperClusters.HybridBarrelSeedThr = 0.150 # 1.000
+     replace hybridSuperClusters.step = 1      # 17
+     replace hybridSuperClusters.eseed = 0.150 # 0.350
+
+     replace islandSuperClusters.seedTransverseEnergyThreshold = 0.150 # 1.000
+
+     module dqmInfoEB = DQMEventInfo{
+       untracked string subSystemFolder = "EcalBarrel"
+     }
+
+     module dqmQTestEB = QualityTester{
+       untracked int32 prescaleFactor = 1
+       untracked bool getQualityTestsFromFile = true
+       untracked FileInPath qtList = "DQM/EcalBarrelMonitorModule/test/data/EcalBarrelQualityTests.xml"
+       untracked string reportThreshold = "red"
+     }
+
+     sequence ecal_dqm_sourceclient-offline0 = { ecalUncalibHit2 }
+
+     sequence ecal_dqm_sourceclient-offline1 = { ecalBarrelMonitorModule,
+                                                 dqmInfoEB,
+                                                 ecalBarrelMonitorClient,
+                                                 dqmQTestEB }
+
+     sequence ecal_dqm_sourceclient-offline2 = { ecalBarrelCosmicTasksSequence,
+                                                 ecalBarrelClusterTask }
+
