@@ -35,7 +35,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 
      replace ecalBarrelOccupancyTask.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelOccupancyTask.EcalPnDiodeDigiCollection = ecalDigis:
-     replace ecalBarrelOccupancyTask.EcalTrigPrimDigiCollection = ecalDigis:EcalTriggerPrimitives
+     replace ecalBarrelOccupancyTask.EcalTrigPrimDigiCollection = ecalDigis:EBTT
 #     replace ecalBarrelOccupancyTask.EcalRawDataCollection = ecalDigis:
 
      replace ecalBarrelPedestalOnlineTask.EBDigiCollection = ecalDigis:ebDigis
@@ -53,7 +53,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 
      replace ecalBarrelTimingTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
 
-     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EcalTriggerPrimitives
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EBTT
 
 include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
 
