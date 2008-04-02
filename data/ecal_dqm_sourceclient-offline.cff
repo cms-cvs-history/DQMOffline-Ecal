@@ -64,8 +64,10 @@ include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
                                                         "StatusFlags",
                                                         "Occupancy",
                                                         "PedestalOnline",
-                                                        "Pedestal", "TestPulse",
-                                                        "Laser", "Timing",
+#                                                        "Pedestal",
+#                                                        "TestPulse",
+#                                                        "Laser",
+                                                        "Timing",
                                                         "Cosmic",
                                                         "Cluster",
                                                         "TriggerTower",
@@ -88,6 +90,15 @@ include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
                                                  dqmInfoEB,
                                                  ecalBarrelMonitorClient }
 
-     sequence ecal_dqm_sourceclient-offline2 = { ecalBarrelCosmicTasksSequence,
+     sequence ecal_dqm_sourceclient-offline2 = { ecalBarrelOccupancyTask,
+                                                 ecalBarrelIntegrityTask,
+                                                 ecalBarrelStatusFlagsTask,
+#                                                 ecalBarrelLaserTask,
+                                                 ecalBarrelPedestalOnlineTask,
+#                                                 ecalBarrelPedestalTask,
+#                                                 ecalBarrelTestPulseTask,
+                                                 ecalBarrelTriggerTowerTask,
+                                                 ecalBarrelTimingTask,
+                                                 ecalBarrelCosmicTask,
                                                  ecalBarrelClusterTask }
 
