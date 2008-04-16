@@ -11,6 +11,8 @@ include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
      replace ecalBarrelMonitorModule.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelMonitorModule.EcalTrigPrimDigiCollection = ecalDigis:EBTT
 
+     replace ecalBarrelMonitorModule.verbose = false
+
 include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi" 
 
      replace ecalBarrelCosmicTask.EcalRawDataCollection = ecalDigis:
@@ -32,10 +34,10 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
      replace ecalBarrelLaserTask.EcalPnDiodeDigiCollection = ecalDigis:
      replace ecalBarrelLaserTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
 
+     replace ecalBarrelOccupancyTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelOccupancyTask.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelOccupancyTask.EcalPnDiodeDigiCollection = ecalDigis:
-     replace ecalBarrelOccupancyTask.EcalTrigPrimDigiCollection = ecalDigis:EBTT
-     replace ecalBarrelOccupancyTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelOccupancyTask.EcalTrigPrimDigiCollection = ecalDigis:EcalTriggerPrimitives
 
      replace ecalBarrelPedestalOnlineTask.EBDigiCollection = ecalDigis:ebDigis
 
@@ -50,14 +52,17 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
      replace ecalBarrelTestPulseTask.EcalPnDiodeDigiCollection = ecalDigis:
      replace ecalBarrelTestPulseTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
 
+     replace ecalBarrelTimingTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelTimingTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
 
-     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EBTT
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EcalTriggerPrimitives
 
 include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
 
      replace ecalBarrelMonitorClient.maskFile = ""
      replace ecalBarrelMonitorClient.location = "P5"
+
+     replace ecalBarrelMonitorClient.verbose = false
 
      replace ecalBarrelMonitorClient.enabledClients = { "Integrity",
                                                         "StatusFlags",
