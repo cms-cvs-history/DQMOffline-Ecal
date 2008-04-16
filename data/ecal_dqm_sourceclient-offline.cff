@@ -7,7 +7,6 @@
 
 include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
 
-     replace ecalBarrelMonitorModule.EcalTBEventHeader = ecalDigis:
      replace ecalBarrelMonitorModule.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelMonitorModule.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelMonitorModule.EcalTrigPrimDigiCollection = ecalDigis:EBTT
