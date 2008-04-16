@@ -57,6 +57,9 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 
      replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EcalTriggerPrimitives
 
+# to be used if the TP emulator is not in the path
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
+
 include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
 
      replace ecalBarrelMonitorClient.maskFile = ""
