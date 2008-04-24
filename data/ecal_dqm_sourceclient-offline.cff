@@ -9,7 +9,7 @@ include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
 
      replace ecalBarrelMonitorModule.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelMonitorModule.EBDigiCollection = ecalDigis:ebDigis
-     replace ecalBarrelMonitorModule.EcalTrigPrimDigiCollection = ecalDigis:EBTT
+     replace ecalBarrelMonitorModule.EcalTrigPrimDigiCollection = ecalDigis:EcalTriggerPrimitives
 
      replace ecalBarrelMonitorModule.verbose = false
 
