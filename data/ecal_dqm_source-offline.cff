@@ -60,12 +60,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 # to be used if the TP emulator is not in the path
      replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
 
-     module dqmInfoEB = DQMEventInfo{
-       untracked string subSystemFolder = "EcalBarrel"
-     }
-
      sequence ecal_dqm_source-offline = { ecalBarrelMonitorModule,
-                                          dqmInfoEB,
                                           ecalBarrelOccupancyTask,
                                           ecalBarrelIntegrityTask,
                                           ecalBarrelStatusFlagsTask,
