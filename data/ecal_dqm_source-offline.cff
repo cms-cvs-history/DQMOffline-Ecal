@@ -1,0 +1,80 @@
+
+     replace ecalFixedAlphaBetaFitUncalibRecHit.MinAmplBarrel = 12.
+     replace ecalFixedAlphaBetaFitUncalibRecHit.MinAmplEndcap = 16.
+
+     replace ecalFixedAlphaBetaFitUncalibRecHit.EBdigiCollection = ecalDigis:ebDigis
+     replace ecalFixedAlphaBetaFitUncalibRecHit.EEdigiCollection = ecalDigis:eeDigis
+
+include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
+
+     replace ecalBarrelMonitorModule.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelMonitorModule.EBDigiCollection = ecalDigis:ebDigis
+     replace ecalBarrelMonitorModule.EcalTrigPrimDigiCollection = ecalDigis:EcalTriggerPrimitives
+
+     replace ecalBarrelMonitorModule.verbose = false
+
+include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi" 
+
+     replace ecalBarrelCosmicTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelCosmicTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+
+     replace ecalBarrelIntegrityTask.EBDetIdCollection0 = ecalDigis:EcalIntegrityDCCSizeErrors
+     replace ecalBarrelIntegrityTask.EBDetIdCollection1 = ecalDigis:EcalIntegrityGainErrors
+     replace ecalBarrelIntegrityTask.EBDetIdCollection2 = ecalDigis:EcalIntegrityChIdErrors
+     replace ecalBarrelIntegrityTask.EBDetIdCollection3 = ecalDigis:EcalIntegrityGainSwitchErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection1 = ecalDigis:EcalIntegrityTTIdErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection2 = ecalDigis:EcalIntegrityBlockSizeErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection3 = ecalDigis:EcalIntegrityMemTtIdErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection4 = ecalDigis:EcalIntegrityMemBlockSizeErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection5 = ecalDigis:EcalIntegrityMemChIdErrors
+     replace ecalBarrelIntegrityTask.EcalElectronicsIdCollection6 = ecalDigis:EcalIntegrityMemGainErrors
+
+     replace ecalBarrelLaserTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelLaserTask.EBDigiCollection = ecalDigis:ebDigis
+     replace ecalBarrelLaserTask.EcalPnDiodeDigiCollection = ecalDigis:
+     replace ecalBarrelLaserTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+
+     replace ecalBarrelOccupancyTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelOccupancyTask.EBDigiCollection = ecalDigis:ebDigis
+     replace ecalBarrelOccupancyTask.EcalPnDiodeDigiCollection = ecalDigis:
+     replace ecalBarrelOccupancyTask.EcalTrigPrimDigiCollection = ecalDigis:EcalTriggerPrimitives
+
+     replace ecalBarrelPedestalOnlineTask.EBDigiCollection = ecalDigis:ebDigis
+
+     replace ecalBarrelPedestalTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelPedestalTask.EBDigiCollection = ecalDigis:ebDigis
+     replace ecalBarrelPedestalTask.EcalPnDiodeDigiCollection = ecalDigis:
+
+     replace ecalBarrelStatusFlagsTask.EcalRawDataCollection = ecalDigis:
+
+     replace ecalBarrelTestPulseTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelTestPulseTask.EBDigiCollection = ecalDigis:ebDigis
+     replace ecalBarrelTestPulseTask.EcalPnDiodeDigiCollection = ecalDigis:
+     replace ecalBarrelTestPulseTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+
+     replace ecalBarrelTimingTask.EcalRawDataCollection = ecalDigis:
+     replace ecalBarrelTimingTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
+
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EcalTriggerPrimitives
+
+# to be used if the TP emulator is not in the path
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
+
+     module dqmInfoEB = DQMEventInfo{
+       untracked string subSystemFolder = "EcalBarrel"
+     }
+
+     sequence ecal_dqm_source-offline = { ecalBarrelMonitorModule,
+                                          dqmInfoEB,
+                                          ecalBarrelOccupancyTask,
+                                          ecalBarrelIntegrityTask,
+                                          ecalBarrelStatusFlagsTask,
+#                                          ecalBarrelLaserTask,
+                                          ecalBarrelPedestalOnlineTask,
+#                                          ecalBarrelPedestalTask,
+#                                          ecalBarrelTestPulseTask,
+                                          ecalBarrelTriggerTowerTask,
+                                          ecalBarrelTimingTask,
+                                          ecalBarrelCosmicTask,
+                                          ecalBarrelClusterTask }
+
