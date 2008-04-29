@@ -60,16 +60,68 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 # to be used if the TP emulator is not in the path
      replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
 
-     sequence ecal_dqm_source-offline = { ecalBarrelMonitorModule,
-                                          ecalBarrelOccupancyTask,
-                                          ecalBarrelIntegrityTask,
-                                          ecalBarrelStatusFlagsTask,
-#                                          ecalBarrelLaserTask,
-                                          ecalBarrelPedestalOnlineTask,
-#                                          ecalBarrelPedestalTask,
-#                                          ecalBarrelTestPulseTask,
-                                          ecalBarrelTriggerTowerTask,
-                                          ecalBarrelTimingTask,
-                                          ecalBarrelCosmicTask,
-                                          ecalBarrelClusterTask }
+     sequence ecal_dqm_source-offline = { ecal_dqm_source-offline1 }
+
+     sequence ecal_dqm_source-offline1 = { ecalBarrelMonitorModule,
+                                           ecalBarrelIntegrityTask
+                                         }
+
+     sequence ecal_dqm_source-offline2 = { ecalBarrelMonitorModule,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask
+                                         }
+
+     sequence ecal_dqm_source-offline3 = { ecalBarrelMonitorModule,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelCosmicTask
+                                         }
+
+     sequence ecal_dqm_source-offline4 = { ecalBarrelMonitorModule,
+                                           ecalBarrelOccupancyTask,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelCosmicTask
+                                         }
+
+     sequence ecal_dqm_source-offline5 = { ecalBarrelMonitorModule,
+                                           ecalBarrelOccupancyTask,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelPedestalOnlineTask,
+                                           ecalBarrelCosmicTask
+                                         }
+
+     sequence ecal_dqm_source-offline6 = { ecalBarrelMonitorModule,
+                                           ecalBarrelOccupancyTask,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelPedestalOnlineTask,
+                                           ecalBarrelTriggerTowerTask,
+                                           ecalBarrelCosmicTask
+                                         }
+
+     sequence ecal_dqm_source-offline7 = { ecalBarrelMonitorModule,
+                                           ecalBarrelOccupancyTask,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelPedestalOnlineTask,
+                                           ecalBarrelTriggerTowerTask,
+                                           ecalBarrelCosmicTask,
+                                           ecalBarrelClusterTask
+                                         }
+
+     sequence ecal_dqm_source-offline9 = { ecalBarrelMonitorModule,
+                                           ecalBarrelOccupancyTask,
+                                           ecalBarrelIntegrityTask,
+                                           ecalBarrelStatusFlagsTask,
+                                           ecalBarrelLaserTask,
+                                           ecalBarrelPedestalOnlineTask,
+                                           ecalBarrelPedestalTask,
+                                           ecalBarrelTestPulseTask,
+                                           ecalBarrelTriggerTowerTask,
+                                           ecalBarrelTimingTask,
+                                           ecalBarrelCosmicTask,
+                                           ecalBarrelClusterTask
+                                         }
 
