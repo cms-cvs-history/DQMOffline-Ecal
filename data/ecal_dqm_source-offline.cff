@@ -60,24 +60,32 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 # to be used if the TP emulator is not in the path
      replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
 
+     module dqmInfoEB = DQMEventInfo{
+       untracked string subSystemFolder = "EcalBarrel"
+     }
+
      sequence ecal_dqm_source-offline = { ecal_dqm_source-offline1 }
 
      sequence ecal_dqm_source-offline1 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelIntegrityTask
                                          }
 
      sequence ecal_dqm_source-offline2 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask
                                          }
 
      sequence ecal_dqm_source-offline3 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
                                            ecalBarrelCosmicTask
                                          }
 
      sequence ecal_dqm_source-offline4 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelOccupancyTask,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
@@ -85,6 +93,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
                                          }
 
      sequence ecal_dqm_source-offline5 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelOccupancyTask,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
@@ -93,6 +102,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
                                          }
 
      sequence ecal_dqm_source-offline6 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelOccupancyTask,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
@@ -102,6 +112,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
                                          }
 
      sequence ecal_dqm_source-offline7 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelOccupancyTask,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
@@ -112,6 +123,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
                                          }
 
      sequence ecal_dqm_source-offline9 = { ecalBarrelMonitorModule,
+                                           dqmInfoEB,
                                            ecalBarrelOccupancyTask,
                                            ecalBarrelIntegrityTask,
                                            ecalBarrelStatusFlagsTask,
