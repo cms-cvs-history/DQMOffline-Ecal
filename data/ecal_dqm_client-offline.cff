@@ -7,16 +7,16 @@ include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
      replace ecalBarrelMonitorClient.verbose = false
 
      replace ecalBarrelMonitorClient.enabledClients = { "Integrity",
-#                                                        "StatusFlags",
-#                                                        "Occupancy",
-#                                                        "PedestalOnline",
+                                                        "StatusFlags",
+                                                        "Occupancy",
+                                                        "PedestalOnline",
 ##                                                        "Pedestal",
 ##                                                        "TestPulse",
 ##                                                        "Laser",
 #                                                        "Timing",
-#                                                        "Cosmic",
-#                                                        "Cluster",
-#                                                        "TriggerTower",
+                                                        "Cosmic",
+                                                        "Cluster",
+                                                        "TriggerTower",
                                                         "Summary" }
 
      module dqmQTestEB = QualityTester{
