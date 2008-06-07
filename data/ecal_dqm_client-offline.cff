@@ -26,5 +26,5 @@ include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
        untracked string reportThreshold = "red"
      }
 
-     sequence ecal_dqm_client-offline = { ecalBarrelMonitorClient, dqmQTestEB }
+     sequence ecal_dqm_client_offline = { ecalBarrelMonitorClient, dqmQTestEB }
 
