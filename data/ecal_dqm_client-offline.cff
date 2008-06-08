@@ -24,6 +24,7 @@ include "DQM/EcalBarrelMonitorClient/data/EcalBarrelMonitorClient.cfi"
        untracked bool getQualityTestsFromFile = true
        untracked FileInPath qtList = "DQM/EcalBarrelMonitorModule/test/data/EcalBarrelQualityTests.xml"
        untracked string reportThreshold = "red"
+       untracked bool qtestOnEndRun = true
      }
 
      sequence ecal_dqm_client_offline = { ecalBarrelMonitorClient, dqmQTestEB }
