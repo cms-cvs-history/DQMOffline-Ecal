@@ -134,5 +134,5 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
                                            ecalBarrelClusterTask
                                          }
 
-     sequence ecal_dqm_source_offline = { ecal_dqm_source-offline1 }
+     sequence ecal_dqm_source_offline = { ecal_dqm_source_offline1 }
 
