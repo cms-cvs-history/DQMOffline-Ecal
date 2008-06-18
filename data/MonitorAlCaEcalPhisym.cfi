@@ -1,0 +1,20 @@
+//
+// $Id$
+//
+// \author Stefano Argiro
+//
+
+module EcalPhiSymMon = DQMSourcePhiSym{
+   
+    // DQM folder to write to
+    untracked string FolderName = "ALCAStreamEcalPhiSym"
+
+    // prescale
+    untracked int32 prescaleFactor =1
+
+    // product to monitor
+    untracked InputTag AlCaStreamEBTag = hltAlCaPhiSymStream:phiSymEcalRecHitsEB
+    untracked InputTag AlCaStreamEETag = hltAlCaPhiSymStream:phiSymEcalRecHitsEE
+    untracked bool SaveToFile = false
+    untracked string FileName = "MonitorAlCaEcalPhiSym.root"
+}
