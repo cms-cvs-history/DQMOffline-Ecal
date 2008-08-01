@@ -10,7 +10,7 @@ include "DQM/EcalBarrelMonitorModule/data/EcalBarrelMonitorModule.cfi"
 include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi" 
 
      replace ecalBarrelCosmicTask.EcalRawDataCollection = ecalDigis:
-     replace ecalBarrelCosmicTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+     replace ecalBarrelCosmicTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
 
      replace ecalBarrelIntegrityTask.EBDetIdCollection0 = ecalDigis:EcalIntegrityDCCSizeErrors
      replace ecalBarrelIntegrityTask.EBDetIdCollection1 = ecalDigis:EcalIntegrityGainErrors
@@ -26,7 +26,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
      replace ecalBarrelLaserTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelLaserTask.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelLaserTask.EcalPnDiodeDigiCollection = ecalDigis:
-     replace ecalBarrelLaserTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+     replace ecalBarrelLaserTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
 
      replace ecalBarrelOccupancyTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelOccupancyTask.EBDigiCollection = ecalDigis:ebDigis
@@ -44,7 +44,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
      replace ecalBarrelTestPulseTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelTestPulseTask.EBDigiCollection = ecalDigis:ebDigis
      replace ecalBarrelTestPulseTask.EcalPnDiodeDigiCollection = ecalDigis:
-     replace ecalBarrelTestPulseTask.EcalUncalibratedRecHitCollection = ecalWeightUncalibRecHit:EcalUncalibRecHitsEB
+     replace ecalBarrelTestPulseTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
 
      replace ecalBarrelTimingTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelTimingTask.EcalUncalibratedRecHitCollection = ecalFixedAlphaBetaFitUncalibRecHit:EcalUncalibRecHitsEB
