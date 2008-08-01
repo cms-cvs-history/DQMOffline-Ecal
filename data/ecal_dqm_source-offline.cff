@@ -52,10 +52,10 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
      replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionReal = ecalDigis:EcalTriggerPrimitives
 
 # to be used if the TP emulator _is_not_ in the path
-#     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
+     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = ecalDigis:EcalTriggerPrimitives
 
 # to be used if the TP emulator _is_ in the path
-     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = valEcalTriggerPrimitiveDigis
+#     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = valEcalTriggerPrimitiveDigis
 
      replace ecalBarrelClusterTask.BasicClusterCollection = cosmicBasicClusters:CosmicBarrelBasicClusters
 
