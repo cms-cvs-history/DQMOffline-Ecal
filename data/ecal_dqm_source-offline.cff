@@ -58,6 +58,8 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 #     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = valEcalTriggerPrimitiveDigis
 
      replace ecalBarrelClusterTask.BasicClusterCollection = cosmicBasicClusters:CosmicBarrelBasicClusters
+     replace ecalBarrelClusterTask.SuperClusterCollection = hybridSuperClusters:
+     replace ecalBarrelClusterTask.ClusterShapeAssociation = hybridSuperClusters:hybridShapeAssoc
 
      module dqmInfoEB = DQMEventInfo{
        untracked string subSystemFolder = "EcalBarrel"
