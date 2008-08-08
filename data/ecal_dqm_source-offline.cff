@@ -57,6 +57,7 @@ include "DQM/EcalBarrelMonitorTasks/data/EcalBarrelMonitorTasks.cfi"
 # to be used if the TP emulator _is_ in the path
 #     replace ecalBarrelTriggerTowerTask.EcalTrigPrimDigiCollectionEmul = valEcalTriggerPrimitiveDigis
 
+     replace ecalBarrelClusterTask.EcalRawDataCollection = ecalDigis:
      replace ecalBarrelClusterTask.BasicClusterCollection = cosmicBasicClusters:CosmicBarrelBasicClusters
      replace ecalBarrelClusterTask.SuperClusterCollection = hybridSuperClusters:
 
