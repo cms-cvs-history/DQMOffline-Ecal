@@ -11,6 +11,8 @@ from DQM.EcalEndcapMonitorTasks.EEHltTask_cfi import *
 from DQMOffline.Ecal.EBClusterTaskExtras_cfi import *
 from DQMOffline.Ecal.EEClusterTaskExtras_cfi import *
 
+from DQMOffline.Ecal.EcalZmassTask_cfi import *
+
 dqmInfoEB = cms.EDAnalyzer("DQMEventInfo",
     subSystemFolder = cms.untracked.string('EcalBarrel')
 )
@@ -31,7 +33,9 @@ ee_dqm_source_offline = cms.Sequence(ecalEndcapMonitorModule*dqmInfoEE*ecalEndca
 ## standard with Selective Readout Task
 ee_dqm_source_offline1 = cms.Sequence(ecalEndcapMonitorModule*dqmInfoEE*ecalEndcapOccupancyTask*ecalEndcapIntegrityTask*ecalEndcapStatusFlagsTask*ecalEndcapSelectiveReadoutTask*ecalEndcapRawDataTask*ecalEndcapPedestalOnlineTask*ecalEndcapTriggerTowerTask*ecalEndcapClusterTask*ecalEndcapHltTask*ecalEndcapClusterTaskExtras)
 
-ecal_dqm_source_offline = cms.Sequence(eb_dqm_source_offline*ee_dqm_source_offline)
+ecalcalib_dqm_source_offline = cms.Sequence(ecalzmasstask)
+
+ecal_dqm_source_offline = cms.Sequence(eb_dqm_source_offline*ee_dqm_source_offline*ecalcalib_dqm_source_offline)
 
 ecalBarrelMonitorModule.EcalRawDataCollection = 'ecalDigis:'
 ecalBarrelMonitorModule.EBDigiCollection = 'ecalDigis:ebDigis'
